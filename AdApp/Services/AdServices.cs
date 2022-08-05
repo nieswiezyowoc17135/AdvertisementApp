@@ -19,11 +19,11 @@ namespace AdApp.Services
 
         public async Task DeletingSomeAdFromAzue(CloudTable table, string id)
         {
-            var elementToDelete = new TableQuery<AdTable>().Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, id));
-            var resultss = await table.ExecuteQuerySegmentedAsync<AdTable>(elementToDelete, null);
-            var results= resultss.Results.FirstOrDefault(x => x.RowKey == id);
-
-            TableOperation deleteOperation = TableOperation.Delete(results);
+            TableOperation retriveOperation = TableOperation.Retrieve<AdTable>(id, id);
+            TableResult tableResult = await table.ExecuteAsync(retriveOperation);
+            var temporaryVariable = tableResult.Result as AdTable;
+            TableOperation deleteOperation = TableOperation.Delete(temporaryVariable);
+            await table.ExecuteAsync(deleteOperation);
             TableResult result = await table.ExecuteAsync(deleteOperation);
         }
 
