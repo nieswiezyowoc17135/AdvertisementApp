@@ -1,0 +1,12 @@
+{
+    "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+
+  },
+  "ConnectionStrings": {
+    "AzureStorageAccountConnectionString": "DefaultEndpointsProtocol=https;AccountName=psarticle;AccountKey=5vkxEfcI2YJEWi9HrIeP+lJZCOA48uEWz1eV9/bRPfASocHHfbcyb7h/hcLN6cCVfw9rI8AKm+xU+AStmyFYCg==;EndpointSuffix=core.windows.net",
+    "AzureTableName": "demopawel"
+  }
+}
